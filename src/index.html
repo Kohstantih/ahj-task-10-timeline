@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Timeline</title>
+</head>
+<body>
+    <div class="container">
+        <div class="timeline_box">
+            <ul class="list_posts"></ul>
+            <div class="preview_box hidden">
+                <video class="preview" autoplay muted></video>
+            </div>
+            <form name="post" class="add_post">
+                <div class="enter_curtain hidden">
+                    <span class="enter_curtain_text">Идет запись</span>
+                </div>
+                <input name="text" type="text" class="enter_text" placeholder="Enter text...">
+                <div class="btn_box box_add">
+                    <button type="button" class="add_audio btn_add" aria-label="Записать аудио"></button>
+                    <button type="button" class="add_video btn_add" aria-label="Записать видео"></button>
+                </div>
+                <div class="btn_box box_rec hidden">
+                    <button type="button" class="btn_end btn_rec" aria-label="Остановить запись"></button>
+                    <p class="timer_rec">00:00</p>
+                    <button type="button" class="btn_cansel btn_rec" aria-label="Отменить запись"></button>
+                </div>
+            </form>
+            <form name="entercoords" class="coords_user hidden">
+                <h5 class="inform_title">Что-то пошло не так</h5>
+                <p class="inform_text">
+                    К сожалению, нам не удалось определить ваше местоположение,
+                    пожалуйста, дайте разрешение на использование геолокации,
+                    либо введите координаты вручную.
+                </p>
+                <p class="coords_comment">Широта и долгота через запятую</p>
+                <input name="coords" type="text" class="enter_coords">
+            </form>
+        </div>
+        <div class="error-message_box hidden">
+            <h3 class="error-message_title">Произошла ошибка</h3>
+            <span class="error-message_text"></span>
+            <button type="button" class="error-message_ok">Ok</button>
+        </div>
+        <div class="inform_box hidden">
+            <span class="inform_message"></span>
+            <button type="button" class="inform_ok">Ok</button>
+        </div>
+        <div class="curtain hidden"></div>
+    </div>
+</body>
+</html>
