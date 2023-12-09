@@ -2,12 +2,13 @@ import GetDate from './GetDate';
 import conversionUserCoords from './conversionUserCoords';
 
 export default class PostControl {
-  constructor(widget, showErrorMessage, toolTip, previewWidget, showInform) {
+  constructor(widget, showErrorMessage, toolTip, previewWidget, showInform, counter) {
     this.widget = widget;
     this.showErrorMessage = showErrorMessage;
     this.toolTip = toolTip;
     this.previewWidget = previewWidget;
     this.showInform = showInform;
+    this.counter = counter;
 
     this.chunks = null;
     this.objPost = null;
@@ -105,6 +106,7 @@ export default class PostControl {
           this.recorder.addEventListener('start', () => {
             this.chunks = [];
             this.widget.toggleBtnBox();
+            this.counter.startCounter();
           });
 
           this.recorder.addEventListener('dataavailable', (event) => {
@@ -121,6 +123,7 @@ export default class PostControl {
             this.widget.toggleBtnBox();
             this.chunks = null;
             this.canselStatus = true;
+            this.counter.stopCounter();
           });
 
           this.recorder.start();
@@ -164,6 +167,7 @@ export default class PostControl {
             this.chunks = [];
             this.widget.toggleBtnBox();
             this.previewWidget.showPreview(this.widget.listPosts, stream);
+            this.counter.startCounter();
           });
 
           this.recorder.addEventListener('dataavailable', (event) => {
@@ -181,6 +185,7 @@ export default class PostControl {
             this.previewWidget.hidePreview();
             this.chunks = null;
             this.canselStatus = true;
+            this.counter.stopCounter();
           });
 
           this.recorder.start();
